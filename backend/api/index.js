@@ -10,18 +10,13 @@ const app = express();
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-// Option 1: Allow All Origins with Default of cors(*)
-app.use(
-  cors()
-);
+app.use(cors());
 
-app.get("/", (request, response) => {
-  console.log(request);
-  return response.status(234).send("Welcome To MERN Stack Tutorial");
+app.get("/", (req, res) => {
+  return res.status(200).send("Welcome To MERN Stack Tutorial");
 });
 
 app.use("/books", booksRoute);
-
 
 mongoose
   .connect(mongoDBURL)
@@ -34,3 +29,6 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+// Export for Vercel
+export default app;
