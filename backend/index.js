@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
+import { PORT, mongoDBURL,APP_URL } from "./config.js";
 import mongoose from "mongoose";
 import booksRoute from "./routes/booksRoute.js";
 import cors from "cors";
@@ -10,7 +10,11 @@ const app = express();
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-app.use(cors());
+app.use(cors({
+  origin: APP_URL, 
+    credentials: true,
+    methods: ["GET","HEAD","PATCH", "POST", "PUT", "DELETE"],
+}));
 
 app.get("/", (req, res) => {
   return res.status(200).send("Welcome To MERN Stack Tutorial");
