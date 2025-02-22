@@ -11,10 +11,13 @@ app.use(express.json());
 
 // Middleware for handling CORS POLICY
 app.use(cors({
-  origin: APP_URL, 
-    credentials: true,
-    
+  origin: [APP_URL, FRONTEND_URL],
+  credentials: true,
+  methods: ["GET", "HEAD", "PATCH", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
+
+
 
 app.get("/", (req, res) => {
   return res.status(200).send("Welcome To MERN Stack Tutorial");
