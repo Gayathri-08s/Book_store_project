@@ -10,12 +10,9 @@ const app = express();
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-app.use(cors({
-  origin: "https://bookstorefront.vercel.app",
-  credentials: true,
-  methods: ["GET", "HEAD", "PATCH", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(cors()); 
+
+
 
 
 
