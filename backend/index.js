@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Middleware for handling CORS POLICY
 app.use(cors({
-  origin: [APP_URL, FRONTEND_URL],
+  origin: "*",
   credentials: true,
   methods: ["GET", "HEAD", "PATCH", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
