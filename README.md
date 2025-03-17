@@ -10,3 +10,4 @@ Open 2 terminals
             npm run dev
 
 YOUR DONE!
+Deployed version: https://bookstorefront.vercel.app/
